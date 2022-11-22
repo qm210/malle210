@@ -3,7 +3,7 @@ FROM python:3.9.2-slim-buster
 WORKDIR /home
 
 RUN apt update
-RUN apt install -y python3-dev python3-pip
+RUN apt install -y python3-dev python3-pip alsa-utils
 
 RUN pip install pipenv
 
