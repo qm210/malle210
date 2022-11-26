@@ -4,11 +4,10 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-flask = "==2.2.2"
-py-midi = "==2.0.1"
-flask-cors = "==3.0.10"
-mido = "==1.2.10"
-pygame = "==2.1.2"
+flask = "*"
+flask-cors = "*"
+mido = "*"
+python-rtmidi = "*"
 
 [dev-packages]
 
