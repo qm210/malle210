@@ -19,4 +19,4 @@ def write_content(filename, content):
 def raw_dump(data):
     if data is None:
         return ""
-    return dumps(data, indent=4)
+    return dumps(data, indent=4, default=lambda x: "Non-Serializable")

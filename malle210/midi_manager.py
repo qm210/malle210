@@ -17,12 +17,14 @@ type 1 (synchronous): all tracks start at the same time
 type 2 (asynchronous): each track is independent of the others
 '''
 
+
 class MalleMidiManager:
 
     files = []
     tracks = {}
     names = []
     current_number = {}
+    channel_mapping = {}
 
     _matcher = re.compile(r"(?P<name>[a-zA-Z_]+)(?P<number>[0-9])")
 
@@ -36,12 +38,13 @@ class MalleMidiManager:
             self.tracks = self.read_tracks(self.files)
             self.names = list(self.tracks.keys())
             self.current_number = {name: 0 for name in self.names}
+            self.channel_mapping = {name: index for index, name in enumerate(self.names)}
         except Exception as ex:
             print("Could not read files", ex)
         print(self.files, getcwd())
 
     @staticmethod
-    def read_tracks(files) -> Dict[str, list[MidiFile]]:
+    def read_tracks(files) -> Dict[str, Dict[int, MidiFile]]:
         result = {}
         for file in files:
             group = MalleMidiManager._matcher.match(file).groupdict()
@@ -49,8 +52,8 @@ class MalleMidiManager:
             try:
                 midi = MidiFile(path.join(MIDI_FOLDER, file), clip=True)  # clip=True caps velocity at max. 127
                 if name not in result:
-                    result[name] = []
-                result[name].append({number: midi})
+                    result[name] = {}
+                result[name][int(number)] = midi
             except Exception as ex:
                 print(f"Trouble with {file}, {repr(ex)}")
         return result
