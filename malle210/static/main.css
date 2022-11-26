@@ -5,3 +5,7 @@ body {
     padding: 1rem;
     background-color: palegreen;
 }
+
+li {
+    margin: 0.5rem;
+}

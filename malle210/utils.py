@@ -1,3 +1,4 @@
+from json import dumps
 
 
 def read_content(filename, default=""):
@@ -13,3 +14,9 @@ def read_content(filename, default=""):
 def write_content(filename, content):
     with open(filename, 'w') as handle:
         handle.write(content)
+
+
+def raw_dump(data):
+    if data is None:
+        return ""
+    return dumps(data, indent=4)

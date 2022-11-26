@@ -3,7 +3,8 @@ from .midi_manager import MalleMidiManager
 from threading import Thread
 from time import time
 
-_CLEAR_MESSAGE = mido.Message('control_change', control=123)
+# there is CC 120 and 123 to mute all, but 123 respects the sustain
+_CLEAR_MESSAGE = mido.Message('control_change', control=120)
 
 
 class Malle:
@@ -25,8 +26,9 @@ class Malle:
         return self._output is not None
 
     def set_output(self, name):
-        if not name:
-            return
+        self.stop_tracks()
+        if self._output:
+            self._output.close()
         try:
             self._output = mido.open_output(name)
             self.output_name = name
@@ -34,9 +36,12 @@ class Malle:
             self._output = None
             self.output_name = None
 
-    def clear_all(self):
-        for ch in range(16):
-            self._output.send(_CLEAR_MESSAGE, channel=ch)
+    def clear_all(self, force_note_off=False):
+        for channel in range(16):
+            if force_note_off:
+                for note in range(128):
+                    self._output.send(mido.Message('note_off', note=note, channel=channel))
+            self._output.send(_CLEAR_MESSAGE.copy(channel=channel))
         return "cleared."
 
     def test_notes(self):
@@ -48,21 +53,28 @@ class Malle:
         return "done"
 
     def start_tracks(self):
-        for thread in self._run_threads:
-            thread.join()
-
-        self._run_threads = []
+        self.stop_tracks()
+        print(f"try to start, threads are {self._run_threads}")
         self._start_time = time()
         for name in self.manager.names:
             number = self.manager.current_number[name]
             print(f"== {name.upper()} ==> play #{number}")
-            thread = Thread(target=self.run_track, args=(self.manager.tracks[name][number]))
+            thread = Thread(target=self.run_track, args=(self.manager.tracks[name][number],))
             self._run_threads.append(thread)
+        for thread in self._run_threads:
             thread.start()
-        return True
+
+    def stop_tracks(self):
+        print(f"stop tracks, threads are {self._run_threads}")
+        for thread in self._run_threads:
+            try:
+                thread.join()
+            except RuntimeError:  # happens if a thread isn't started yet
+                pass
+        self._run_threads = []
 
     def run_track(self, midifile: mido.MidiFile):
-        print("deal with", midifile)
+        # print("deal with", midifile)
         while True:
             pass
 
