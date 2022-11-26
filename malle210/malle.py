@@ -5,7 +5,6 @@ from time import time
 from sys import stdout
 import logging
 
-from .utils import raw_dump
 
 # there is CC 120 and 123 to mute all, but 123 respects the sustain
 _CLEAR_MESSAGE_120 = mido.Message('control_change', control=120)
@@ -21,6 +20,7 @@ class Malle:
     _run_threads: list[Thread] = []
     _start_time = None
     _stop_flag = False
+    bpm = 150
 
     def __init__(self, *args, **kwargs):
         # read kwargs.get(key, default) if you want
@@ -77,11 +77,10 @@ class Malle:
         self._start_time = time()
         self._stop_flag = False
         for name in self.manager.names:
-            number = self.manager.current_number[name]
-            print(f"== {name.upper()} ==> play #{number}")
+            mapping = self.manager.mapping[name]
             thread = Thread(
                 target=self.run_track,
-                args=(self.manager.tracks[name][number], self.manager.channel_mapping[name])
+                args=(self.manager.get_track(name), mapping.channel)
             )
             self._run_threads.append(thread)
         for thread in self._run_threads:
@@ -102,20 +101,30 @@ class Malle:
 
     def run_track(self, midifile: mido.MidiFile, channel=None):
         last_note = 0
+        print("whatup", midifile.ticks_per_beat)
         while True:
             for message in midifile.play(meta_messages=True):
                 if self._stop_flag:
                     self.mute(note=last_note)
                     return
+                if message.is_cc():
+                    stdout.write(f"cc: {message}\n")
+                    stdout.flush()
                 if isinstance(message, mido.Message):
                     if channel is not None:
-                        message = message.copy(channel=channel)
-                    stdout.write(f"Message: {message} {self._stop_flag}\n")
-                    stdout.flush()
+                        message.channel = channel
                     last_note = message.note
                     self._output.send(message)
+                elif isinstance(message, mido.MetaMessage):
+                    if message.type == 'set_tempo':
+                        pass
+                        # self._output.send(mido.MetaMessage('set_tempo', tempo=))
+                    else:
+                        pass
+                    stdout.write(f"Look, a meta message: {message.type} {message}\n")
+                    stdout.flush()
                 else:
-                    stdout.write(f"not interpreted Message: {message}\n")
+                    stdout.write(f"What is this message?? {message}\n")
                     stdout.flush()
 
     def get_runtime_sec(self):
@@ -126,3 +135,9 @@ class Malle:
 
     def is_playing(self):
         return self._start_time is not None
+
+    def set_current_number(self, number, track_name=None):
+        try:
+            self.manager.set_mapping(current_number=number, track_name=track_name, debug=True)
+        except Exception as ex:
+            print(f"set_current_number exception, {repr(ex)}")

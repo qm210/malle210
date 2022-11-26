@@ -105,6 +105,8 @@ def all_note_off():
 
 @app.route('/mayhem')
 def start_mayhem():
+    current_number = request.args.get("number", default=0)
+    malle.set_current_number(current_number)
     if not malle.is_playing():
         malle.start_tracks()
     return render_template(

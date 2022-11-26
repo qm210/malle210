@@ -11,7 +11,7 @@
             {% if connected %}
                 <li><a href="{{ url_for('status') }}">status info</a></li>
                 <li><a href="{{ url_for('disconnect') }}">disconnect "{{device_name}}"</a></li>
-                <li><a href="{{ url_for('mute_all') }}">CC#120 (mute) to all channels</a></li>
+                <li><a href="{{ url_for('mute_all') }}">Mute CC (120 and 123) to all channels</a></li>
                 <li><a href="{{ url_for('all_note_off') }}">Note Off to every note in the universe</a></li>
                 <li><a href="{{ url_for('test_notes') }}">Test Brauner Ton on all Channels</a></li>
                 <li><a href="{{ url_for('start_mayhem') }}">Start Mayhem (the concept, not the band)</a></li>
