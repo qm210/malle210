@@ -1,0 +1,1 @@
+scp -r . pi:pipi@raspberrypi:/home/pi/tmp/lol

@@ -2,30 +2,28 @@ from flask import Flask, jsonify, render_template, request, redirect, url_for
 from flask_cors import CORS
 from time import time
 from datetime import datetime
+from urllib import parse
 import logging
 
 from .malle import Malle
 from .state import LastStateFile
 from .utils import read_content, write_content, raw_dump
 
-app = Flask(__name__)
+logger = logging.getLogger(__name__)
+
+app = Flask(__name__,
+            static_url_path='',
+            static_folder='build',
+            template_folder='templates')
 # app.config.from_object(__name__)  # wad dis?
 CORS(app, resources={r'/*': {'origins': '*'}})
 malle = Malle()
 
-logger = logging.getLogger(__name__)
-
-start_time = None
-
-
-@app.before_first_request
-def startup():
-    global start_time
-    last_device = read_content(LastStateFile.device_name)
-    malle.set_output(last_device)
-    if not malle.output_name:
-        write_content(LastStateFile.device_name, "")
-    start_time = time()
+last_device = read_content(LastStateFile.device_name)
+malle.set_output(last_device)
+if not malle.output_name:
+    write_content(LastStateFile.device_name, "")
+start_time = time()
 
 
 @app.route('/')
@@ -49,13 +47,16 @@ def index(data=None):
 @app.route('/devices/')
 def list_devices():
     devices = malle.list_devices()
-    href = [f"../connect?device={device}" for device in devices]
+    # href = [f"../connect?device={device}" for device in devices]
+    links = [{
+        'title': device,
+        'href': f"../connect?device={parse.quote_plus(device)}"
+    } for device in devices]
     return render_template(
         'list.html',
         title='Midi Output Devices',
         message="Select one (probably not the Midi Through, but who am I to judge)",
-        list=devices,
-        href=href
+        list=links
     )
 
 
@@ -77,12 +78,12 @@ def disconnect():
 
 @app.route('/status')
 def status():
-    return index(data={
+    return {
         'output_set': malle.output_set(),
         'playing': malle.is_playing(),
         'time_sec': malle.get_runtime_sec(),
         'name': malle.output_name
-    })
+    }
 
 
 @app.route('/test')
@@ -105,7 +106,7 @@ def all_note_off():
 
 @app.route('/mayhem')
 def start_mayhem():
-    current_number = request.args.get("number", default=0)
+    current_number = request.args.get("number", default=2, type=int)  # 2 is se hack for now
     malle.set_current_number(current_number)
     if not malle.is_playing():
         malle.start_tracks()

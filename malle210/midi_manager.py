@@ -25,7 +25,7 @@ type 2 (asynchronous): each track is independent of the others
 class MalleMidiMapping:
     def __init__(self, *args, **kwargs):
         self.channel = kwargs.get('channel', 0)
-        self.current_number = kwargs.get('current_number', 0)
+        self.current_number = kwargs.get('current_number', 2)  # 2 is default for Meet&Beep now, no time left...
 
 
 class MalleMidiManager:

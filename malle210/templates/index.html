@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>Malle210</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}">
+        <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
         <h2>{{ title }}</h2>
@@ -15,6 +15,7 @@
                 <li><a href="{{ url_for('all_note_off') }}">Note Off to every note in the universe</a></li>
                 <li><a href="{{ url_for('test_notes') }}">Test Brauner Ton on all Channels</a></li>
                 <li><a href="{{ url_for('start_mayhem') }}">Start Mayhem (the concept, not the band)</a></li>
+                <li><a href="index.html">Masterful Interface</a></li>
             {% else %}
                 <li>Disconnected. List devices <a href="{{ url_for('list_devices') }}">over here</a></li>
             {% endif %}

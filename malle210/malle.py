@@ -38,7 +38,7 @@ class Malle:
         if self._output:
             self._output.close()
         try:
-            self._output = mido.open_output(name)
+            self._output = mido.open_output(name, autoreset=True)
             self.output_name = name
         except OSError:
             self._output = None
@@ -51,6 +51,7 @@ class Malle:
                     self.mute(note=note, channel=channel)
             self._output.send(_CLEAR_MESSAGE_120.copy(channel=channel))
             self._output.send(_CLEAR_MESSAGE_123.copy(channel=channel))
+        self._output.panic()  # is that redundant?
         return "cleared."
 
     def mute(self, note, channel=None):
@@ -103,7 +104,7 @@ class Malle:
         last_note = 0
         print("whatup", midifile.ticks_per_beat)
         while True:
-            for message in midifile.play(meta_messages=True):
+            for message in midifile.play(meta_messages=False):
                 if self._stop_flag:
                     self.mute(note=last_note)
                     return
@@ -116,13 +117,13 @@ class Malle:
                     last_note = message.note
                     self._output.send(message)
                 elif isinstance(message, mido.MetaMessage):
+                    # TODO: need a plan on how to enforce the tempo from outside - filter when reading, add event at start?
+                    # -> can only change tempo between loops, but that is probably ok for now
                     if message.type == 'set_tempo':
+                        print("tempo...", mido.bpm2tempo(self.bpm))
+                        # self._output.send(mido.MetaMessage('set_tempo', tempo=231523))
+                    elif message.type == 'time_signature':
                         pass
-                        # self._output.send(mido.MetaMessage('set_tempo', tempo=))
-                    else:
-                        pass
-                    stdout.write(f"Look, a meta message: {message.type} {message}\n")
-                    stdout.flush()
                 else:
                     stdout.write(f"What is this message?? {message}\n")
                     stdout.flush()
