@@ -1,9 +1,9 @@
 export type Note = {
+    uuid: string,
     on: number
     length: number,
     key: number,
     vel: number,
-    // id: string, // need ? probably not.
 };
 
 export type NoteKey = {

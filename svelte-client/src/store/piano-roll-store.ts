@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
-import {BaseNote, ScaleMode} from "./notes";
-import type {Scale} from "./notes";
+import {BaseNote, ScaleMode} from "../notes";
+import type {Scale} from "../notes";
 
 export const notes = writable([]);
 
