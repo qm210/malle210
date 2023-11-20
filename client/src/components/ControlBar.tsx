@@ -45,10 +45,6 @@ const Bar = styled.div`
 const ControlButton = styled.button`
   background: none;
   border: none;
-  width: 100%;
-  height: 100%;
-  color: unset;
-  font-size: unset;
 
   display: flex;
   flex-direction: column;

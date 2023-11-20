@@ -4,6 +4,7 @@ import "./main.css";
 import {RouterProvider} from "@tanstack/react-router";
 import {IconContext} from "react-icons";
 import router from "./app/router";
+import MalleProvider from './infrastructure/malle-context';
 
 
 const root = ReactDOM.createRoot(
@@ -12,8 +13,10 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <StrictMode>
-        <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-            <RouterProvider router={router}/>
-        </IconContext.Provider>
+        <MalleProvider>
+            <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
+                <RouterProvider router={router}/>
+            </IconContext.Provider>
+        </MalleProvider>
     </StrictMode>
 );

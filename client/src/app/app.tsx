@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 
 import ControlBar from "../components/ControlBar";
 import {Outlet} from "@tanstack/react-router";
+import ConnectionOverlay from "../components/ConnectionOverlay.tsx";
 
 const AppLayout = styled.div`
   display: flex;
@@ -14,7 +15,7 @@ const AppLayout = styled.div`
     flex: 1;
   }
   
-  & > div:last-of-type {
+  & > div:nth-of-type(2) {
     flex-basis: 100px;
   }
 `;
@@ -24,6 +25,7 @@ const App = () => {
         <AppLayout>
             <Outlet/>
             <ControlBar/>
+            <ConnectionOverlay/>
         </AppLayout>
     );
 };
