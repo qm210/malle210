@@ -141,4 +141,4 @@ class Malle:
         try:
             self.manager.set_mapping(current_number=number, track_name=track_name, debug=True)
         except Exception as ex:
-            print(f"set_current_number exception, {repr(ex)}")
+            print(f"set_current_number exception, {ex}")

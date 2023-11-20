@@ -1,0 +1,1 @@
+pscp -P 22 -r -v -l pi -pw pipi . raspberrypi:/home/pi/malle210

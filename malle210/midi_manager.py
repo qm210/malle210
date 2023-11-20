@@ -47,7 +47,10 @@ class MalleMidiManager:
             self.files = [file for file in self.files if file.lower().endswith((".mid", ".midi"))]
             self.tracks = self.read_tracks(self.files)
             self.names = list(self.tracks.keys())
-            self.mapping = {name: MalleMidiMapping(channel=index) for index, name in enumerate(self.names)}
+            self.mapping = {
+                    name: MalleMidiMapping(channel=index)
+                    for index, name in enumerate(self.names)
+                }
         except Exception as ex:
             print("Could not read files", ex)
 
