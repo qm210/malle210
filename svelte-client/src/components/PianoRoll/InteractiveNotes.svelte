@@ -1,93 +1,73 @@
 <script lang="ts">
     import {notes} from "../../store/piano-roll-store";
-    import type {Note} from "../../notes";
-    import {dragNotePayload, dragState, DragType} from "../../store/drag-state";
-    import {getContext} from "svelte";
+    import {draggedNote, dragState} from "../../store/drag-state";
     import {dragHandlers} from "../../store/drag-state.js";
+    import {getPianoRollContext} from "../../lib/contexts";
+    import type {Note} from "../../notes";
 
     const {
-        beatWidth,
-        nBeatsPerBar,
-        minVisibleKey,
-        nVisibleKeys,
         keyHeight,
-        keyWidth
-    } = getContext('piano-roll');
-
-    const toRoll = (note: Note) => {
-        const w = beatWidth * nBeatsPerBar;
-        const on = note.on * w;
-        const off = (note.on + note.length) * w;
-        return {
-            ...note,
-            on,
-            off,
-            width: off - on,
-            y: (minVisibleKey + nVisibleKeys - note.key - 1) * keyHeight,
-        };
-    };
+        toRoll,
+    } = getPianoRollContext();
 
     $: visibleNotes = $notes.map(toRoll).filter(note => {
             if ($dragState.isDragging) {
-                return $dragState.payload.uuid !== note.uuid;
+                const draggedNote = $dragState.payload as Note;
+                return draggedNote?.uuid !== note?.note.uuid;
             }
             // TODO. check boundaries
             return true;
         });
 
-    $: draggedNote = (() => {
-        if (!$dragNotePayload) {
-            return null;
-        }
-        const result = toRoll($dragNotePayload);
-        return result;
-    })();
+    $: dragRect = toRoll($draggedNote);
 
-    const endDrag = () => {
-        if (!$dragState.isDragging) {
-            return;
-        }
-        if ($dragState.onDrop) {
-            $dragState.onDrop();
-        }
+    $: console.log("DR", dragRect, $draggedNote);
+    
+    const deleteNote = () => {
+        // TODO: no - implement long touch.
+        // console.log("delete it!", $notes);
     };
 
 </script>
 
-<g transform="translate({keyWidth} 0)">
-    {#each visibleNotes as note (note.uuid)}
-        <g transform="translate(0 {note.y})">
+<g>
+    {#each visibleNotes as noteRect (noteRect.note.uuid)}
+        <g transform="translate(0 {noteRect.y})">
             <rect
                     class="note"
-                    x="{note.on}"
-                    width="{note.width}"
+                    x="{noteRect.on}"
+                    width="{noteRect.width}"
                     height="{keyHeight}"
                     rx="3"
-                    on:mousedown={dragHandlers.startNoteDrag(note)}
-                    on:contextmenu|preventDefault
+                    on:mousedown|self={dragHandlers.startNoteDrag(noteRect.note)}
+                    on:mouseleave|stopPropagation
+                    on:contextmenu|preventDefault={deleteNote}
             />
-            <rect
-                    class="note-resizer"
-                    x="{note.off - 8}"
-                    width="8"
-                    height="{keyHeight}"
-                    on:mousedown={dragHandlers.startNoteDrag(note, DragType.NoteMove)}
-                    on:mouseup={endDrag}
-                    on:contextmenu|preventDefault
-            />
+            <!--
+                <rect
+                        class="note-resizer"
+                        x="{noteRect.off - 8}"
+                        width="8"
+                        height="{keyHeight}"
+                        on:mousedown|self={dragHandlers.startNoteDrag(noteRect.note, DragType.NoteMove)}
+                        on:mouseup={dragHandlers.endDrag}
+                        on:mouseleave|stopPropagation
+                        on:contextmenu|stopPropagation|preventDefault
+                />
+            -->
         </g>
     {/each}
-    {#if draggedNote}
-    <rect
-        class="note selected"
-        x="{draggedNote.on}"
-        width="{draggedNote.width}"
-        y="{draggedNote.y}"
-        height="{keyHeight}"
-        rx="3"
-        on:mouseup={endDrag}
-        on:contextmenu|preventDefault
-    />
+    {#if dragRect}
+        <rect
+            class="note dragged"
+            x="{dragRect.on}"
+            width="{dragRect.width}"
+            y="{dragRect.y}"
+            height="{keyHeight}"
+            rx="3"
+            on:mouseup={dragHandlers.endDrag}
+            on:contextmenu|preventDefault
+        />
     {/if}
 </g>
 
@@ -95,14 +75,25 @@
     .note {
         fill: yellowgreen;
         cursor: move;
+        stroke-width: 3px;
+        stroke-opacity: 0.5;
+        stroke: none;
     }
 
+    .note.dragged {
+        fill: whitesmoke;
+        stroke: yellowgreen;
+    }
+
+/*
     .note.selected {
-        fill: yellow;
+        fill: whitesmoke;
+        stroke: darkred;
     }
 
     .note-resizer {
         fill: none;
         cursor: ew-resize;
     }
+*/
 </style>

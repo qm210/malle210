@@ -1,9 +1,8 @@
 <script lang="ts">
-    import {notes} from "../../store/piano-roll-store";
-    import {quantize} from "../../utils/utils";
-    import {v4 as uuid} from "uuid";
-    import {getContext} from "svelte";
-    import {dragHandlers, dragState} from "../../store/drag-state";
+    import {changeNote, createNote, notes} from "../../store/piano-roll-store";
+    import {dragHandlers, draggedNote, dragState} from "../../store/drag-state";
+    import {MOUSE_BUTTON} from "../../lib/constants";
+    import {getPianoRollContext} from "../../lib/contexts";
 
     export let hoveredKey;
 
@@ -11,46 +10,43 @@
         rollWidth,
         rollHeight,
         keyWidth,
-        keyHeight,
-        nBars,
-        nQuantsPerBeat,
         currentNoteLength,
-        minVisibleKey,
-        nVisibleKeys,
-    } = getContext('piano-roll');
+        getRelativeCoordinates,
+        getEventCoordinates,
+        withOffsetTransformed,
+    } = getPianoRollContext();
 
-    const getCoordinates = (event) => {
-        const {offsetX, offsetY} = event;
-        const beat = quantize((offsetX - keyWidth) / rollWidth * nBars, 1 / nQuantsPerBeat);
-        const key = Math.max(0, nVisibleKeys - 1 - Math.round(offsetY / keyHeight)) + minVisibleKey;
-        return {key, beat};
-    };
-
-    const createNote = (event) => {
-        const {beat, key} = getCoordinates(event);
-        notes.update(state => [
-            ...state, {
-                key: key,
-                on: beat,
-                length: currentNoteLength,
-                vel: 1,
-                uuid: uuid()
-            }
-        ]);
+    const onMouseDown = (event) => {
+        if (event.button !== MOUSE_BUTTON.LEFT) {
+            return;
+        }
+        const {beat, key} = getEventCoordinates(event);
+        createNote(beat, key, currentNoteLength);
     };
 
     const onMouseLeave = () => {
         hoveredKey = null;
-        if ($dragState.isDragging) {
-            dragHandlers.endDrag();
+        dragHandlers.endDrag();
+    };
+
+    const onMouseUp = () => {
+        if ($dragState.payload) {
+            console.log("drop", $dragState);
+            const coords = getRelativeCoordinates($dragState.offset);
+            changeNote($dragState.payload.uuid, coords);
         }
+        dragHandlers.endDrag();
     };
 
     const onMouseMove = (event) => {
-        const {key} = getCoordinates(event);
+        const {key} = getEventCoordinates(event);
         hoveredKey = key;
         if ($dragState.isDragging) {
-            dragHandlers.drag(event);
+            if (event.buttons === 0) {
+                dragHandlers.endDrag();
+            } else {
+                dragHandlers.drag(event);
+            }
         }
     };
 
@@ -60,16 +56,21 @@
 
 </script>
 
-<rect
-        class="piano-roll"
-        x="{keyWidth}"
-        width="{rollWidth}"
-        height="{rollHeight}"
-        on:mousedown|self={createNote}
-        on:mouseleave={onMouseLeave}
+<g
+        transform={`translate(${keyWidth} 0)`}
         on:mousemove={onMouseMove}
+        on:mouseleave={onMouseLeave}
         on:contextmenu|preventDefault={deleteAllNotes}
-/>
+        on:mouseup={onMouseUp}
+>
+    <rect
+            class="piano-roll"
+            width="{rollWidth}"
+            height="{rollHeight}"
+            on:mousedown|self|stopPropagation={onMouseDown}
+    />
+    <slot/>
+</g>
 
 <style>
     .piano-roll {

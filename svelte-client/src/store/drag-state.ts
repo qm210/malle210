@@ -1,10 +1,6 @@
-import {derived, writable} from "svelte/store";
+import {derived, get, writable} from "svelte/store";
 import type {Note} from "../notes";
-
-type Point = {
-    x: number,
-    y: number,
-};
+import type {Point} from "../utils/types";
 
 export enum DragType {
     None,
@@ -28,48 +24,82 @@ const initialDragState = () => ({
     offset: zero(),
     type: DragType.None,
     payload: null,
+    transformPayload: undefined,
+    originalPayload: null,
+    startedAt: 0,
 });
 
-type DragPayload = unknown;
+type DragPayload = Note | null;
 
 export type DragState = {
     isDragging: boolean,
     start: Point,
     offset: Point,
     type: DragType,
-    payload: DragPayload | null,
+    payload: DragPayload,
+    transformPayload: undefined | ((payload: DragPayload, offset: Point) => DragPayload),
+    startedAt: number,
     onDrop?: () => void,
+    onJustClick?: () => void,
 };
 
 export const dragState = writable<DragState>(initialDragState());
 
 export const dragHandlers = {
     drag: (event: MouseEvent) => {
-        console.log("handle drag", event);
+        dragState.update((state: DragState) => {
+            if (!state.isDragging) {
+                return state;
+            }
+            const offset = {
+                x: event.clientX - state.start.x,
+                y: event.clientY - state.start.y,
+            };
+            return {
+                ...state,
+                offset,
+            };
+        })
     },
     endDrag: () => {
+        const state = get(dragState);
+        if (!state.isDragging) {
+            return;
+        }
+        if (state.onDrop) {
+            state.onDrop();
+        }
         dragState.set(initialDragState());
     },
-    startNoteDrag: (note: Note, type?: DragType) => (event: MouseEvent) => {
+    startNoteDrag: (note: Note, type?: DragType, transformPayload?: (payload: DragPayload, offset: Point) => DragPayload) => (event: MouseEvent) => {
+        // TODO: NO! don't use the resizers (is shitty for mobile)
+        // -> implement as pinch gesture (how??) and also with Shift or someting, or right click
+        // also: long click -> menu
+        type ??= DragType.NoteMove;
         dragState.set({
             isDragging: true,
             start: fromClient(event),
             offset: zero(),
             payload: note,
-            type: type ?? DragType.NoteMove
+            startedAt: Date.now(),
+            transformPayload,
+            type,
         });
     },
 };
 
-export const dragNotePayload = derived(
+export const draggedNote = derived(
     dragState,
-    ($dragState) => {
-        if (!$dragState.isDragging) {
+    (state) => {
+        if (!state.isDragging) {
             return null;
         }
-        if (![DragType.NoteMove, DragType.NoteResize].includes($dragState.type)) {
+        if (![DragType.NoteMove, DragType.NoteResize].includes(state.type)) {
             return null;
         }
-        return $dragState.payload as Note;
+        const note = typeof state.transformPayload === "function"
+            ? state.transformPayload(state.payload, state.offset)
+            : state.payload;
+        return note as Note;
     }
 );

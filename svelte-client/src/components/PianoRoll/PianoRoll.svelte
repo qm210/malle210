@@ -5,7 +5,10 @@
 	import {currentScale} from "../../store/piano-roll-store";
 	import InteractiveRoll from "./InteractiveRoll.svelte";
 	import InteractiveNotes from "./InteractiveNotes.svelte";
-	import {onDestroy, setContext} from "svelte";
+	import {onDestroy} from "svelte";
+	import {setPianoRollContext} from "../../lib/contexts";
+
+	let windowWidth;
 
 	// general geometry
 	const width = 1400;
@@ -32,6 +35,7 @@
 		scale = state;
 	});
 	onDestroy(unsubscribeScale);
+	// <-- this can be shortened to scale <-> $currentScale
 
 	const keys = arrayWith<NoteKey>(
 			nVisibleKeys,
@@ -45,7 +49,11 @@
 	let hoveredKey = null;
 	let currentNoteLength = 0.25;
 
-	setContext('piano-roll', {
+	// TODO: limit viewport for smaller widths - think mobile
+	let minVisibleBeat = 0;
+	let nVisibleBeats = nBars * nBeatsPerBar;
+
+	setPianoRollContext({
 		rollWidth,
 		rollHeight,
 		keyWidth,
@@ -55,11 +63,14 @@
 		nBeatsPerBar,
 		nQuantsPerBeat,
 		currentNoteLength,
+		minVisibleBeat,
+		nVisibleBeats,
 		minVisibleKey,
 		nVisibleKeys,
 	});
 </script>
 
+<svelte:window bind:innerWidth={windowWidth}/>
 <div>
 	<div
 			class="backdrop"
@@ -149,10 +160,9 @@
 				{/if}
 			{/each}
 		</g>
-		<InteractiveRoll
-			hoveredKey="{hoveredKey}"
-		/>
-		<InteractiveNotes/>
+		<InteractiveRoll bind:hoveredKey>
+			<InteractiveNotes/>
+		</InteractiveRoll>
 	</svg>
 </div>
 

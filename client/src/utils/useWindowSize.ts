@@ -12,6 +12,8 @@ const useWindowSize = () => {
         return () => window.removeEventListener('resize', onResize);
     }, []);
 
+    console.log("löl", window.screen.orientation, window.screen);
+
     return size;
 };
 

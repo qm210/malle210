@@ -1,10 +1,20 @@
 export type Note = {
     uuid: string,
-    on: number
+    beat: number
     length: number,
     key: number,
     vel: number,
 };
+
+export type NoteOnRoll = {
+    note: Note,
+    on: number,
+    off: number,
+    width: number,
+    y: number
+};
+
+export type NoteCoord = Pick<Note, 'beat' | 'key'>;
 
 export type NoteKey = {
     number: number,

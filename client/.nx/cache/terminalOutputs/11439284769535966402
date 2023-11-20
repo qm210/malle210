@@ -1,0 +1,2479 @@
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:43:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:45:02[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:45:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:48:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:52:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:52:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:54:07[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:54:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:54:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:55:37[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:55:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:55:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:56:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:56:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:56:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:56:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:56:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:57:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m18:59:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:01:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:31[22m [31m[1m[vite][22m[39m [31mInternal server error: D:\Coding\malle210\client\src\components\ControlBar.tsx: Unterminated JSX contents. (15:14)
+
+[0m [90m 13 |[31m                 [33mSettings[31m[0m
+[0m [90m 14 |[31m             [33m<[31m[33m/[31m[33mdiv[31m[33m>[31m[0m
+[0m[31m[1m>[22m[31m[90m 15 |[31m         [33m<[31m[33m/[31m[33mBar[31m[33m>[31m[0m
+[0m [90m    |[31m               [31m[1m^[22m[31m[0m
+[0m [90m 16 |[31m     )[33m;[31m[0m
+[0m [90m 17 |[31m }[33m;[31m[0m
+[0m [90m 18 |[31m[0m[39m
+  Plugin: [35mvite:react-babel[39m
+  File: [36mD:/Coding/malle210/client/src/components/ControlBar.tsx[39m:15:14
+[33m  17 |  };
+  18 |  
+  19 |  export default ControlBar;
+     |    ^
+  20 |  
+  21 |  [39m
+      at constructor (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:356:19)
+      at TypeScriptParserMixin.raise (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:3223:19)
+      at TypeScriptParserMixin.jsxReadToken (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6600:20)
+      at TypeScriptParserMixin.getTokenFromCode (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6942:12)
+      at TypeScriptParserMixin.getTokenFromCode (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9847:11)
+      at TypeScriptParserMixin.nextToken (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:2347:10)
+      at TypeScriptParserMixin.next (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:2258:10)
+      at TypeScriptParserMixin.eat (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:2262:12)
+      at TypeScriptParserMixin.expect (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:3585:10)
+      at TypeScriptParserMixin.jsxParseClosingElementAt (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6840:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6855:37)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6858:32)
+      at TypeScriptParserMixin.jsxParseElement (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6915:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6927:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10857:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10840:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10816:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9696:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10654:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10659:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10636:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10597:21)
+      at D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9632:39
+      at TypeScriptParserMixin.tryParse (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:3592:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9632:18)
+      at D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10567:39
+      at TypeScriptParserMixin.allowInAnd (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:12284:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10567:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:11499:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:11137:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:6932:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10857:23)
+      at TypeScriptParserMixin.parseUpdate (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10840:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10816:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9696:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10654:61)
+      at TypeScriptParserMixin.parseExprOps (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10659:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10636:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10597:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9643:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10551:23)
+      at D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10547:39
+      at TypeScriptParserMixin.allowInAnd (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:12279:16)
+      at TypeScriptParserMixin.parseExpression (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:10547:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:13003:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:12621:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:9340:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:12588:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:12568:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\Coding\malle210\client\node_modules\@babel\parser\lib\index.js:13189:61)
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:35[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:02:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:15:07[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m19:15:08[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33m@tanstack/router-devtools[32m[39m
+[2m19:15:08[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:15:54[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:15:58[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:16:02[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:18:05[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:22:32[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m [33m(x5)[39m
+[2m19:22:32[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33m@tanstack/react-router[32m[39m
+[2m19:22:32[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:22:44[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:23:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:23:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:23:48[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/app/router.ts[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:27:45[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:27:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:27:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:28:13[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:30:39[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:30:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:30:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:30:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:12[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x10)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:41[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x11)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:44[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x12)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:46[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x13)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x14)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:31:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x15)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:32:04[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x16)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:32:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x17)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:32:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x18)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:32:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x19)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:33:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x20)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:33:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x21)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:33:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x22)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:33:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x23)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:34:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x24)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:34:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x25)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:34:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:34:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:35:00[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:35:11[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:35:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:35:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:49[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:36:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:05[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:37:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:40:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:40:24[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:40:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:41:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:41:28[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/app/app.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:42:02[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:44:37[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/app/router.ts[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:44:41[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/app/router.ts[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:45:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:45:47[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:45:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:46:43[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:47:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:47:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:47:48[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:47:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:49:55[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:49:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:10[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x10)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:29[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x11)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:31[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x12)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/main.css[22m [33m(x13)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:50:59[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:06[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:17[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:51:51[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PlaceholderPage.tsx[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:52:22[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:52:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:53:03[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:53:42[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x4)[39m
+[2m19:53:43[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-icons/fa, react-icons/fa6, react-icons/tb[32m[39m
+[2m19:53:43[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:53:50[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:53:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:20[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x5)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:25[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x6)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:32[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x7)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x8)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:54:38[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x9)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:55:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x10)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:55:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x11)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:56:09[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x12)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:56:14[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x13)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:56:21[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x14)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:56:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x15)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:56:56[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x16)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x17)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:08[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x18)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:23[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x19)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:27[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x20)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:30[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x21)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:33[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x22)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:34[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x23)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:36[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x24)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:57:52[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x25)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:58:01[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x26)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:58:16[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x27)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:58:40[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x28)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m19:58:58[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x29)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:47:19[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/components/ControlBar.tsx[22m [33m(x30)[39m
+[2m20:47:20[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-icons/bs[32m[39m
+[2m20:47:20[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:49:48[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:51:43[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:51:44[22m [33m[1m[vite][22m[39m [33mwarning: 
+[36mD:/Coding/malle210/client/src/main.tsx[33m
+[0m4  |  import "./main.css";
+5  |  import { RouterProvider } from "@tanstack/react-router";
+6  |  import { IconContext } from "";
+   |                               ^
+7  |  import router from "./app/router";
+8  |  const root = ReactDOM.createRoot([0m[33m
+The above dynamic import cannot be analyzed by Vite.
+See [34mhttps://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations[33m for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.
+[33m[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mD:/Coding/malle210/client/src/main.tsx[39m
+Cannot overwrite a zero-length range – use appendLeft or prependRight instead
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:51:44[22m [33m[1m[vite][22m[39m [33mwarning: 
+[36mD:/Coding/malle210/client/src/main.tsx[33m
+[0m4  |  import "./main.css";
+5  |  import { RouterProvider } from "@tanstack/react-router";
+6  |  import { IconContext } from "";
+   |                               ^
+7  |  import router from "./app/router";
+8  |  const root = ReactDOM.createRoot([0m[33m
+The above dynamic import cannot be analyzed by Vite.
+See [34mhttps://github.com/rollup/plugins/tree/master/packages/dynamic-import-vars#limitations[33m for supported dynamic import formats. If this is intended to be left as-is, you can use the /* @vite-ignore */ comment inside the import() call to suppress this warning.
+[33m[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mD:/Coding/malle210/client/src/main.tsx[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:51:44[22m [31m[1m[vite][22m[39m [31mInternal server error: Cannot overwrite a zero-length range – use appendLeft or prependRight instead[39m
+  Plugin: [35mvite:import-analysis[39m
+  File: [36mD:/Coding/malle210/client/src/main.tsx[39m
+      at MagicString.update (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:15615:10)
+      at MagicString.overwrite (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:15604:15)
+      at file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:42115:35
+      at Array.map (<anonymous>)
+      at TransformContext.transform (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:41914:39)
+      at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+      at async Object.transform (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:44352:30)
+      at async loadAndTransform (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:55026:29)
+      at async viteTransformMiddleware (file:///D:/Coding/malle210/client/node_modules/vite/dist/node/chunks/dep-bb8a8339.js:64430:32)
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m20:56:57[22m [36m[1m[vite][22m[39m [32mpage reload [39m[2msrc/main.tsx[22m
+[2m20:56:59[22m [36m[1m[vite][22m[39m [32m✨ new dependencies optimized: [33mreact-icons[32m[39m
+[2m20:56:59[22m [36m[1m[vite][22m[39m [32m✨ optimized dependencies changed. reloading[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m21:01:15[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m21:01:54[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m [33m(x2)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m21:02:53[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m [33m(x3)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m21:05:18[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m [33m(x4)[39m
+
+
+
+
+
+
+
+
+
+
+
+
+
+[1;1H[0J[2m21:07:57[22m [36m[1m[vite][22m[39m [32mhmr update [39m[2m/src/pages/PatternPage.tsx[22m [33m(x5)[39m
