@@ -3,6 +3,7 @@ import {WebMidi, Output} from "webmidi";
 import {Loader} from "../components/lib.tsx";
 import {useViewStore} from "../app/viewStore.ts";
 import {Loop} from "../types/types";
+import MallePlayer from "./malle-player.ts";
 
 enum MalleMode {
     Raspi = "Default", // not really implemented at all
@@ -44,8 +45,7 @@ type MalleState = {
 let webMidi: typeof WebMidi | undefined;
 
 interface MalleInterface {
-    play: () => void,
-    pause: () => void,
+    togglePlay: () => void,
     stop: () => void,
     listAllOutputs: () => Output[],
     getOutput: (id: string) => Output | undefined,
@@ -60,6 +60,7 @@ type MalleDerivedValues = {
 
 type MalleContextType = MalleState & MalleDerivedValues & MalleInterface & {
     playbackBeat: number | null,
+
 };
 
 const defaultState = (): MalleState => ({
@@ -68,7 +69,7 @@ const defaultState = (): MalleState => ({
     allOutputIds: [],
     currentLoop: {
         beats: 16,
-        bpb: 4,
+        bpb: 4, // beats per bar, is that required?
         bpm: 120,
     },
     playState: PlayState.Stopped,
@@ -81,14 +82,15 @@ const defaultContext = (): MalleContextType => ({
     isPlaying: false,
     // <-- explicitly define the derived defaults, they are not a function of whole defaultState()
     playbackBeat: null,
-    play: () => {},
-    pause: () => {},
+    togglePlay: () => {},
     stop: () => {},
     listAllOutputs: () => [],
     getOutput: () => undefined,
 });
 
 const MalleContext = React.createContext<MalleContextType>(defaultContext());
+
+const mallePlayer = new MallePlayer();
 
 const MalleProvider = ({children}: {children: React.ReactNode}) => {
     const [state, setState] = React.useState<MalleState>(defaultState());
@@ -114,15 +116,39 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
         }
     }, [state]);
 
-    const methods = {
-        play: () => {
+    const isPlaying = React.useMemo(() =>
+            state.playState === PlayState.Playing,
+        [state.playState]
+    );
 
+    const isDisconnected = React.useMemo(() =>
+            state.connectedOutputs.length === 0
+        , [state.connectedOutputs]);
+
+    const methods = {
+        togglePlay: () => {
+            if (!isPlaying) {
+                mallePlayer.start(state.currentLoop, (beat) => {
+                    setPlaybackBeat(beat);
+                });
+            } else {
+                mallePlayer.pause();
+            }
+            setState(state => ({
+                ...state,
+                playState: state.playState === PlayState.Playing
+                    ? PlayState.Paused
+                    : PlayState.Playing,
+            }));
         },
         stop: () => {
-
-        },
-        pause: () => {
-
+            mallePlayer.reset();
+            setPlaybackBeat(null);
+            if (state.mode === MalleMode.WebMidi && webMidi) {
+                webMidi.outputs.forEach(output => {
+                    output.sendAllSoundOff();
+                })
+            }
         },
         listAllOutputs: () =>
             state.mode === MalleMode.WebMidi && webMidi
@@ -134,23 +160,16 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
                 : undefined
     };
 
-    const isPlaying = React.useMemo(() =>
-        state.playState === PlayState.Playing,
-        [state.playState]
-    );
-    const isDisconnected = React.useMemo(() =>
-        state.connectedOutputs.length === 0
-    , [state.connectedOutputs]);
-
     React.useEffect(() => {
         let stillMounted = true;
-        setTimeout(() => {
+        const timeout = setTimeout(() => {
             if (isDisconnected && stillMounted) {
                 setConnectionOverlayOpen(true);
             }
         }, 2000);
         return () => {
             stillMounted = false;
+            clearTimeout(timeout);
         }
     }, [isDisconnected, setConnectionOverlayOpen]);
 

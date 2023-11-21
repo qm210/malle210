@@ -1,9 +1,12 @@
 import React from "react";
-import {Loop, Track} from "../types/types";
+import {Loop, Pattern, Size, Track} from "../types/types";
 import styled from "@emotion/styled";
 import {useMalleContext} from "../infrastructure/malle-context.tsx";
-import useResizeEffect, {useRefWithSize, useSizeOf} from "../utils/useResizeEffect.ts";
+import {useRefWithSize} from "../utils/useResizeEffect.ts";
 import useWindowSize from "../utils/useWindowSize.ts";
+import {range} from "../utils/arrayUtils.ts";
+import {Group} from "../utils/svgUtils.tsx";
+import {Utilities} from "webmidi";
 
 
 type TrackPreviewProps = {
@@ -21,7 +24,12 @@ const TrackPreview = ({track}: TrackPreviewProps) => {
             style={{height}}
         >
             <div>
-                {track.name}
+                <div>
+                    {track.name}
+                </div>
+                <div>
+                    Channel {track.channel}
+                </div>
             </div>
             <TrackLoopPreview
                 track={track}
@@ -40,14 +48,19 @@ const TrackPreviewFrame = styled.div`
   border: 2px solid darkblue;
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   & > div {
     padding: 2rem;
   }
   
   & > div:first-of-type {
-    border-right: 2px dashed darkblue;
     width: 8vw;
+    
+    & > div:nth-of-type(2) {
+      font-size: 0.8rem;
+      white-space: nowrap;
+    }
   }
   
   & > div:last-of-type {
@@ -55,14 +68,80 @@ const TrackPreviewFrame = styled.div`
   }
 `;
 
+type LoopGeometry = Size & Loop & {
+    beatWidth: number
+};
+
 const TrackLoopPreview = ({track, loop, height}: {track: Track, loop: Loop, height: number}) => {
+    const {playbackBeat} = useMalleContext();
     const {ref, width} = useRefWithSize<HTMLDivElement>();
     const size = {width, height};
+    const geometry: LoopGeometry = {...size, ...loop, beatWidth: width / loop.beats};
+
     return (
-        <div ref={ref} style={{width, height, padding: 0}}>
+        <div ref={ref} style={{...size, padding: 0}}>
             <svg {...size}>
                 <rect {...size} fill={"none"}/>
+                <PatternNotes {...geometry} pattern={track.pattern}/>
+                <PatternGrid {...geometry}/>
+                <PlaybackLine {...geometry} currentBeat={playbackBeat}/>
             </svg>
         </div>
     );
 };
+
+const VerticalLine = (props: {beat: number, beatWidth: number, height: number, stroke?: string}) =>
+    <rect
+        width = {1}
+        height = {props.height}
+        x = {props.beat * props.beatWidth}
+        fill = "none"
+        stroke = {props.stroke ?? "grey"}
+    />;
+
+const PatternGrid = (props: LoopGeometry) =>
+    range(props.beats).map(r =>
+        <VerticalLine
+            height = {props.height}
+            beatWidth = {props.beatWidth}
+            beat = {r}
+            stroke = {r % props.bpb === 0 ? "darkblue" : "#00f4"}
+            key = {r}
+        />
+    );
+
+const PlaybackLine = ({currentBeat, ...props}: LoopGeometry & {currentBeat: number | null}) =>
+    currentBeat === null
+        ? null
+        : <VerticalLine
+            height = {props.height}
+            beat = {currentBeat}
+            beatWidth = {props.beatWidth}
+            stroke = {"red"}
+        />;
+
+const PatternNotes = ({pattern, ...props}: LoopGeometry & {pattern: Pattern | null}) =>
+    pattern === null
+        ? null
+        : pattern.notes.map((note, index) =>
+            <Group
+                key = {index}
+                x = {note.on * props.beatWidth}
+            >
+                <rect
+                    width = {(note.off - note.on) * props.beatWidth}
+                    height = {props.height}
+                    fill = {"#08f8"}
+                    stroke = {"none"}
+                />
+                <text
+                    x={"0.25rem"}
+                    y={props.height * 0.95}
+                    fill={"black"}
+                    fontSize={"1rem"}>
+                    {Utilities.getNoteDetails(note.note)?.identifier ?? "??"}
+                </text>
+            </Group>
+        );
+
+console.log(Utilities.getNoteDetails(20))

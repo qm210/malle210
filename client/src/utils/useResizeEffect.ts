@@ -27,7 +27,7 @@ const useResizeEffect = (ref: React.MutableRefObject<HTMLDivElement | null>, cal
 export default useResizeEffect;
 
 
-export const useSizeOf = (ref: any) => {
+const useSizeOf = (ref: any) => {
     const [size, setSize] =
         React.useState<Size>({width: 0, height: 0});
 

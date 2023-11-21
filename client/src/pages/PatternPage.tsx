@@ -1,24 +1,11 @@
 import React from "react";
 import TrackPreview from "../components/TrackPreview.tsx";
-import type {Track} from "../types/types";
 import styled from "@emotion/styled";
 import {FullColumn} from "../components/lib.tsx";
 import PatternOptions from "../components/PatternOptions.tsx";
+import {tracks} from "../infrastructure/malle-player.ts";
 
 const PatternPage = () => {
-
-    const tracks: Track[] = [{
-        name: "Bass",
-        channel: 0,
-        id: "track0",
-        pattern: null,
-    }, {
-        name: "Lead",
-        channel: 1,
-        id: "track1",
-        pattern: null,
-    }];
-
     return (
         <PatternPageFrame>
             <TrackList>

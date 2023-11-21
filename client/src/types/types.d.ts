@@ -1,6 +1,8 @@
 export type Note = {
     on: number,
-    off: number
+    off: number,
+    note: number,
+    vel: number,
 };
 
 export type Pattern = {

@@ -1,18 +1,20 @@
 import styled from "@emotion/styled";
-import { FaPlay } from "react-icons/fa";
-import { FaStop } from "react-icons/fa6";
+import { FaPlay, FaPause } from "react-icons/fa";
+import { FaStop, FaGear } from "react-icons/fa6";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { FaGear } from "react-icons/fa6";
+import {useMalleContext} from "../infrastructure/malle-context.tsx";
 
 
 const ControlBar = () => {
-    const playing = false;
+    const {isPlaying, togglePlay, stop} = useMalleContext();
     return (
         <Bar>
-            <ControlButton disabled={playing}>
-                <FaPlay/>
+            <ControlButton onClick={togglePlay}>
+            {
+                isPlaying ? <FaPause/> : <FaPlay/>
+            }
             </ControlButton>
-            <ControlButton disabled={!playing}>
+            <ControlButton onClick={stop}>
                 <FaStop/>
             </ControlButton>
             <ControlButton disabled>

@@ -7,10 +7,11 @@ import {useViewStore} from "../app/viewStore.ts";
 
 
 const PatternOptions = () => {
+    const {currentLoop} = useMalleContext();
     return (
         <PatternOptionsFrame>
             <div style={{flex: 1, paddingLeft: "0.5rem"}}>
-                BPM: ...
+                BPM: {currentLoop.bpm}
             </div>
             <MidiState/>
         </PatternOptionsFrame>
