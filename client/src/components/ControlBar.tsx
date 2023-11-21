@@ -6,15 +6,21 @@ import {useMalleContext} from "../infrastructure/malle-context.tsx";
 
 
 const ControlBar = () => {
-    const {isPlaying, togglePlay, stop} = useMalleContext();
+    const {isPlaying, togglePlay, stop, isDisconnected} = useMalleContext();
     return (
         <Bar>
-            <ControlButton onClick={togglePlay}>
+            <ControlButton
+                onClick={togglePlay}
+                disabled={isDisconnected}
+            >
             {
                 isPlaying ? <FaPause/> : <FaPlay/>
             }
             </ControlButton>
-            <ControlButton onClick={stop}>
+            <ControlButton
+                onClick={stop}
+                disabled={isDisconnected}
+            >
                 <FaStop/>
             </ControlButton>
             <ControlButton disabled>

@@ -3,9 +3,10 @@ import TrackPreview from "../components/TrackPreview.tsx";
 import styled from "@emotion/styled";
 import {FullColumn} from "../components/lib.tsx";
 import PatternOptions from "../components/PatternOptions.tsx";
-import {tracks} from "../infrastructure/malle-player.ts";
+import {useMalleContext} from "../infrastructure/malle-context.tsx";
 
 const PatternPage = () => {
+    const {tracks} = useMalleContext();
     return (
         <PatternPageFrame>
             <TrackList>

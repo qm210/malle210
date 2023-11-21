@@ -143,5 +143,3 @@ const PatternNotes = ({pattern, ...props}: LoopGeometry & {pattern: Pattern | nu
                 </text>
             </Group>
         );
-
-console.log(Utilities.getNoteDetails(20))

@@ -1,9 +1,10 @@
 import React from "react";
-import {WebMidi, Output} from "webmidi";
+import {WebMidi, Output, OutputChannel} from "webmidi";
 import {Loader} from "../components/lib.tsx";
 import {useViewStore} from "../app/viewStore.ts";
-import {Loop} from "../types/types";
+import {Loop, Track} from "../types/types";
 import MallePlayer from "./malle-player.ts";
+import {defaultTracks} from "./defaultTracks.ts";
 
 enum MalleMode {
     Raspi = "Default", // not really implemented at all
@@ -38,6 +39,7 @@ type MalleState = {
     connectedOutputs: Output[], // when implementing Default/Raspi mode, make things easier by adhering to the same Output type as defined by WebMidi
     allOutputIds: string[],
     currentLoop: Loop,
+    tracks: Track[],
     playState: PlayState,
     initialized: boolean,
 };
@@ -49,6 +51,7 @@ interface MalleInterface {
     stop: () => void,
     listAllOutputs: () => Output[],
     getOutput: (id: string) => Output | undefined,
+    getOutputChannel: (outputId: string, channel: number) => OutputChannel | undefined,
 }
 
 type MalleSetState = React.Dispatch<React.SetStateAction<MalleState>>;
@@ -67,10 +70,11 @@ const defaultState = (): MalleState => ({
     mode: MalleMode.WebMidi,
     connectedOutputs: [],
     allOutputIds: [],
+    tracks: defaultTracks, // will be [] or get loaded from some source
     currentLoop: {
         beats: 16,
         bpb: 4, // beats per bar, is that required?
-        bpm: 120,
+        bpm: 200,
     },
     playState: PlayState.Stopped,
     initialized: false,
@@ -86,6 +90,7 @@ const defaultContext = (): MalleContextType => ({
     stop: () => {},
     listAllOutputs: () => [],
     getOutput: () => undefined,
+    getOutputChannel: () => undefined,
 });
 
 const MalleContext = React.createContext<MalleContextType>(defaultContext());
@@ -101,7 +106,7 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
         if (state.initialized) {
             return;
         }
-        initMode(state)
+        initMode(state.mode)
             .then(wm => {
                 setState(state => ({
                     ...state,
@@ -111,10 +116,7 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
                 }));
                 addEventListeners(wm.outputs, setState);
             });
-        return () => {
-            // setState(defaultState());
-        }
-    }, [state]);
+    }, [state.mode, state.initialized]);
 
     const isPlaying = React.useMemo(() =>
             state.playState === PlayState.Playing,
@@ -128,6 +130,12 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
     const methods = {
         togglePlay: () => {
             if (!isPlaying) {
+                // TODO: this probably won't stay here,
+                // and also, this reduces the outputs to the first one
+                mallePlayer.updateNotes(
+                    state.tracks,
+                    state.connectedOutputs[0]!
+                );
                 mallePlayer.start(state.currentLoop, (beat) => {
                     setPlaybackBeat(beat);
                 });
@@ -149,14 +157,22 @@ const MalleProvider = ({children}: {children: React.ReactNode}) => {
                     output.sendAllSoundOff();
                 })
             }
+            setState(state => ({
+                ...state,
+                playState: PlayState.Stopped
+            }));
         },
         listAllOutputs: () =>
-            state.mode === MalleMode.WebMidi && webMidi
-                ? webMidi.outputs
+            state.mode === MalleMode.WebMidi
+                ? webMidi!.outputs
                 : [], // TODO: nothing implemented otherwise
         getOutput: (id: string) =>
-            state.mode === MalleMode.WebMidi && webMidi
-                ? webMidi.getOutputById(id)
+            state.mode === MalleMode.WebMidi
+                ? webMidi!.getOutputById(id)
+                : undefined,
+        getOutputChannel: (outputId: string, channel: number) =>
+            state.mode === MalleMode.WebMidi
+                ? webMidi!.getOutputById(outputId)?.channels[channel]
                 : undefined
     };
 
@@ -194,11 +210,11 @@ export const useMalleContext = () => React.useContext(MalleContext);
 const filterConnected = (outputs: Output[]): Output[] =>
     outputs.filter(isConnected);
 
-const initMode = async (state: MalleState): Promise<typeof WebMidi> => {
-    if (state.mode === MalleMode.WebMidi) {
+const initMode = async (mode: MalleMode): Promise<typeof WebMidi> => {
+    if (mode === MalleMode.WebMidi) {
         return initWebMidiMode()
     } else {
-        throw Error("Mode not yet implemented: " + state.mode);
+        throw Error("Mode not yet implemented: " + mode);
     }
 }
 
@@ -243,11 +259,17 @@ const addEventListeners = (outputs: Output[], setState: MalleSetState) => {
         }));
 
     for (const output of outputs) {
+        const otherOutputs = outputs.filter(o => o.id !== output.id);
+
         output.addListener(Output.ANY_EVENT, event => {
             console.log("WebMidi event", event, "on output", output.id);
         });
         output.addListener(EventType.Closed, updateConnectedOutputs);
-        output.addListener(EventType.Opened, updateConnectedOutputs);
+        output.addListener(EventType.Opened, () => {
+            // for now, we only want one open output at a time - can we extend that?
+            otherOutputs.forEach(o => o.close());
+            updateConnectedOutputs();
+        });
     }
 };
 
