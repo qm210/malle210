@@ -6,7 +6,7 @@ interface PatternState {
     addNote: (note: Note) => void
 }
 
-const useStore = create<PatternState>()((set => ({
+export const usePatternStore = create<PatternState>()((set => ({
     notes: [],
     addNote: (note) => set(state => ({
         ...state,

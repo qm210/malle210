@@ -1,7 +1,8 @@
 import React from "react";
 
 const useWindowSize = () => {
-    const [size, setSize] = React.useState<{width: number, height: number} | undefined>();
+    const [size, setSize] =
+        React.useState<{width: number, height: number}>({width: 0, height: 0});
 
     React.useEffect(() => {
         const onResize = () => setSize({
@@ -9,10 +10,9 @@ const useWindowSize = () => {
             height: window.innerHeight
         });
         window.addEventListener('resize', onResize);
+        onResize();
         return () => window.removeEventListener('resize', onResize);
     }, []);
-
-    console.log("löl", window.screen.orientation, window.screen);
 
     return size;
 };

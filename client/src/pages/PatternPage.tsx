@@ -11,10 +11,12 @@ const PatternPage = () => {
         name: "Bass",
         channel: 0,
         id: "track0",
+        pattern: null,
     }, {
         name: "Lead",
         channel: 1,
-        id: "track1"
+        id: "track1",
+        pattern: null,
     }];
 
     return (

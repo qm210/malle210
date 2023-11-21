@@ -9,7 +9,7 @@ export const FullRow = styled.div<{center?: boolean}>`
   height: 100%;
   overflow: hidden;
   justify-content: ${props => props.center ? "center" : "stretch"};
-  align-items: ${props => props.center ? "center" : "unset"};
+  align-items: ${props => props.center ? "center" : "stretch"};
 `;
 
 export const FullColumn = styled(FullRow)`

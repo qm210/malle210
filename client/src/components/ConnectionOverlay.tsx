@@ -1,38 +1,40 @@
 import styled from "@emotion/styled";
-import {IfMalleInitialized, useMalleContext} from "../infrastructure/malle-context.tsx";
+import {IfMalleInitialized, isConnected, useMalleContext} from "../infrastructure/malle-context.tsx";
 import React from "react";
+import {useViewStore} from "../app/viewStore.ts";
+import {counted} from "../utils/stringUtils.ts";
+import {Output} from "webmidi";
 
 
 const ConnectionOverlay = () => {
-    const malleState = useMalleContext();
+    const malle = useMalleContext();
+    const isOpen = useViewStore(state => state.connectionOverlayOpen);
+    const setConnectionOverlayOpen = useViewStore(state => state.setConnectionOverlayOpen);
 
-    if (malleState.connected) {
+    if (!isOpen) {
         return null;
     }
 
-    console.log("MS", malleState, malleState.getOutputs());
-
     return (
-        <Overlay>
-            <ConnectionOverlayFrame>
+        <Overlay onClick={() => setConnectionOverlayOpen(false)}>
+            <ConnectionOverlayFrame onClick={event => {event.stopPropagation()}}>
                 <IfMalleInitialized>
                     <div>
-                        Blablu
+                        {counted(malle.allOutputIds, "outputs found")}
                     </div>
-                    <ul>
+                    <ul style={{flex: 1}}>
                         {
-                            malleState.getOutputs().map(output =>
-                                <li>
-                                    <span>
-                                        {output.name}: {output.state}
-                                    </span>
-                                    <button>
-                                        Open
-                                    </button>
-                                </li>
+                            malle.listAllOutputs().map(output =>
+                                <OutputListEntry
+                                    output={output}
+                                    key={output.id}
+                                />
                             )
                         }
                     </ul>
+                    <div style={{opacity: 0.5}}>
+                        Tap outside this frame to close window.
+                    </div>
                 </IfMalleInitialized>
             </ConnectionOverlayFrame>
         </Overlay>
@@ -70,8 +72,64 @@ const ConnectionOverlayFrame = styled.div`
   display: flex;
   flex-direction: column;
   
+  & ul {
+    list-style: none;
+    padding: 0;
+  }
+  
   & li {
     border: 1px solid gold;
-    padding: 0.5rem;
+    display: flex;
+    align-items: stretch;
+    justify-content: stretch;
+
+    & > div:first-of-type {
+      padding: 1rem;
+      flex: 1;
+    }
+    
+    & > button:last-of-type {
+      flex-basis: 20vw;
+      align-self: flex-end;
+      border: none;
+      padding: 1rem;
+      
+      &:active {
+        opacity: 0.75;
+      }
+    }
   }
 `;
+
+const OutputListEntry = ({output}: {output: Output}) => {
+    const connected = isConnected(output);
+
+    const toggle = () => {
+        if (connected) {
+            output.close();
+        } else {
+            output.open();
+        }
+    };
+
+    return (
+        <li>
+            <div
+                style = {{backgroundColor: !connected ? "darkred" : "darkgreen"}}
+            >
+                {output.name}:{" "}
+                <b style={{color: connected ? "#4f4" : undefined}}>
+                    {output.state} & {output.connection}
+                </b>
+            </div>
+            <button
+                style = {{backgroundColor: "transparent"}}
+                onClick = {toggle}
+            >
+                {
+                    connected ? "Close" : "Open"
+                }
+            </button>
+        </li>
+    );
+};

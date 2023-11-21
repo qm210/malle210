@@ -1,6 +1,9 @@
 import React from "react";
-import {Track} from "../types/types";
+import {Loop, Track} from "../types/types";
 import styled from "@emotion/styled";
+import {useMalleContext} from "../infrastructure/malle-context.tsx";
+import useResizeEffect, {useRefWithSize, useSizeOf} from "../utils/useResizeEffect.ts";
+import useWindowSize from "../utils/useWindowSize.ts";
 
 
 type TrackPreviewProps = {
@@ -8,14 +11,23 @@ type TrackPreviewProps = {
 };
 
 const TrackPreview = ({track}: TrackPreviewProps) => {
+    const {currentLoop} = useMalleContext();
+    const {ref} = useRefWithSize<HTMLDivElement>();
+    const windowSize = useWindowSize();
+    const height = 0.16 * windowSize.height;
     return (
-        <TrackPreviewFrame>
+        <TrackPreviewFrame
+            ref={ref}
+            style={{height}}
+        >
             <div>
                 {track.name}
             </div>
-            <div>
-                blablu...
-            </div>
+            <TrackLoopPreview
+                track={track}
+                loop={currentLoop}
+                height={Math.max(0, height - 4) /* border width */}
+            />
         </TrackPreviewFrame>
     );
 };
@@ -42,3 +54,15 @@ const TrackPreviewFrame = styled.div`
     flex: 1;
   }
 `;
+
+const TrackLoopPreview = ({track, loop, height}: {track: Track, loop: Loop, height: number}) => {
+    const {ref, width} = useRefWithSize<HTMLDivElement>();
+    const size = {width, height};
+    return (
+        <div ref={ref} style={{width, height, padding: 0}}>
+            <svg {...size}>
+                <rect {...size} fill={"none"}/>
+            </svg>
+        </div>
+    );
+};
