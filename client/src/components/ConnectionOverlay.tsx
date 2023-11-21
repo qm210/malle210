@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
-import {useMalleContext} from "../infrastructure/malle-context.tsx";
+import {IfMalleInitialized, useMalleContext} from "../infrastructure/malle-context.tsx";
+import React from "react";
 
 
 const ConnectionOverlay = () => {
@@ -14,12 +15,25 @@ const ConnectionOverlay = () => {
     return (
         <Overlay>
             <ConnectionOverlayFrame>
-                <div>
-                    Blablu
-                </div>
-                <button>
-                    Löl
-                </button>
+                <IfMalleInitialized>
+                    <div>
+                        Blablu
+                    </div>
+                    <ul>
+                        {
+                            malleState.getOutputs().map(output =>
+                                <li>
+                                    <span>
+                                        {output.name}: {output.state}
+                                    </span>
+                                    <button>
+                                        Open
+                                    </button>
+                                </li>
+                            )
+                        }
+                    </ul>
+                </IfMalleInitialized>
             </ConnectionOverlayFrame>
         </Overlay>
     )
@@ -51,7 +65,13 @@ const ConnectionOverlayFrame = styled.div`
   height: 70vh;
   margin: 15vh auto;
   padding: 2rem;
+  color: gold;
   
   display: flex;
   flex-direction: column;
+  
+  & li {
+    border: 1px solid gold;
+    padding: 0.5rem;
+  }
 `;
