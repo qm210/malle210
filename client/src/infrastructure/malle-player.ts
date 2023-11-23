@@ -51,8 +51,11 @@ export class MallePlayer {
             }
             return track.pattern?.notes.map(note => ({
                     on: note.on,
-                    off: note.off,
-                    note: new WebMidiNote(note.note, {attack: note.vel}),
+                    off: note.on + note.length,
+                    note: new WebMidiNote(
+                        note.note + 12 * track.octaveShift,
+                        {attack: note.velocity}
+                    ),
                     channel: output.channels[track.channel],
                 }))
                 ?? [];

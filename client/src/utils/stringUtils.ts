@@ -7,3 +7,11 @@ export const counted = (count: number | unknown[], singular: string, plural?: st
     }
     return `${count} ${count === 1 ? singular : plural}`;
 };
+
+export const notOrWithSign = (count: number, suffix: string) => {
+    if (count === 0) {
+        return "";
+    }
+    const prefix = count > 0 ? "+" : "";
+    return `${prefix}${count} ${suffix}`;
+};

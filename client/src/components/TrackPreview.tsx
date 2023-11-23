@@ -7,6 +7,7 @@ import useWindowSize from "../utils/useWindowSize.ts";
 import {range} from "../utils/arrayUtils.ts";
 import {Group} from "../utils/svgUtils.tsx";
 import {Utilities} from "webmidi";
+import {notOrWithSign} from "../utils/stringUtils.ts";
 
 
 type TrackPreviewProps = {
@@ -29,6 +30,9 @@ const TrackPreview = ({track}: TrackPreviewProps) => {
                 </div>
                 <div>
                     Channel {track.channel}
+                </div>
+                <div>
+                    {notOrWithSign(track.octaveShift, "Octaves")}
                 </div>
             </div>
             <TrackLoopPreview
@@ -56,10 +60,10 @@ const TrackPreviewFrame = styled.div`
   
   & > div:first-of-type {
     width: 8vw;
+    white-space: nowrap;
     
-    & > div:nth-of-type(2) {
+    & > div:not(:first-of-type) {
       font-size: 0.8rem;
-      white-space: nowrap;
     }
   }
   
@@ -129,7 +133,7 @@ const PatternNotes = ({pattern, ...props}: LoopGeometry & {pattern: Pattern | nu
                 x = {note.on * props.beatWidth}
             >
                 <rect
-                    width = {(note.off - note.on) * props.beatWidth}
+                    width = {note.length * props.beatWidth}
                     height = {props.height}
                     fill = {"#08f8"}
                     stroke = {"none"}

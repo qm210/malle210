@@ -1,8 +1,8 @@
 export type Note = {
     on: number,
-    off: number,
+    length: number,
     note: number,
-    vel: number,
+    velocity: number,
 };
 
 export type Pattern = {
@@ -15,6 +15,7 @@ export type Track = {
     channel: number,
     id: string,
     pattern: Pattern | null,
+    octaveShift: number,
 };
 
 export type Loop = {
