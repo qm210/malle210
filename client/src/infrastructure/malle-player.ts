@@ -1,11 +1,16 @@
 import {Loop, Track} from "../types/types";
 import {Note as WebMidiNote, Output, OutputChannel} from "webmidi";
+import {clamp} from "../utils/mathUtils.ts";
 
 type NoteInfo = {
     on: number,
     off: number,
     channel: OutputChannel,
-    note: WebMidiNote
+    note: WebMidiNote,
+    jitter: {
+        baseline: Track['jitter'],
+        amplitude: Track['jitter'],
+    },
 };
 
 export class MallePlayer {
@@ -30,6 +35,7 @@ export class MallePlayer {
             this.playNotesInLast(deltaBeat);
             if (this.currentBeat > loop.beats) {
                 this.currentBeat -= loop.beats;
+                this.applyJitterOnNotes();
                 this.playNotesInLast(deltaBeat);
             }
             if (callback) {
@@ -54,13 +60,34 @@ export class MallePlayer {
                     off: note.on + note.length,
                     note: new WebMidiNote(
                         note.note + 12 * track.octaveShift,
-                        {attack: note.velocity}
+                        {
+                            attack: note.velocity
+                        }
                     ),
                     channel: output.channels[track.channel],
+                    jitter: {
+                        baseline: {
+                            beat: note.on,
+                            velocity: note.velocity,
+                        },
+                        amplitude: track.jitter,
+                    }
                 }))
                 ?? [];
         }).sort((a, b) => a.on - b.on);
         console.log("updated notes", this.notes);
+    }
+
+    applyJitterOnNotes() {
+        for (const note of this.notes) {
+            note.on = note.jitter.baseline.beat +
+                Math.random() * note.jitter.amplitude.beat;
+            note.note.attack = note.jitter.baseline.velocity +
+                Math.random() * note.jitter.amplitude.velocity;
+
+            note.on = Math.max(note.on, 0);
+            note.note.attack = clamp(note.note.attack, 0, 1);
+        }
     }
 
     getNotesIn(fromBeat: number, toBeat: number) {

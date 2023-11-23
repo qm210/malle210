@@ -7,6 +7,10 @@ export const defaultTracks: Track[] = [{
     channel: 1,
     id: "track0",
     octaveShift: 0,
+    jitter: {
+        velocity: 0.2,
+        beat: 0.00,
+    },
     pattern: {
         steps: 16,
         notes: [{
@@ -51,6 +55,10 @@ export const defaultTracks: Track[] = [{
     channel: 1,
     id: "track1",
     octaveShift: -1,
+    jitter: {
+        velocity: 0.3,
+        beat: 0.5,
+    },
     pattern: {
         steps: 16,
         notes: [{

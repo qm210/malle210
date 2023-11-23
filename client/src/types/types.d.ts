@@ -16,6 +16,10 @@ export type Track = {
     id: string,
     pattern: Pattern | null,
     octaveShift: number,
+    jitter: {
+        velocity: number,
+        beat: number,
+    }
 };
 
 export type Loop = {
