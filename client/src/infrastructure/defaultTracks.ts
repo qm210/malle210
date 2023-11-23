@@ -9,7 +9,7 @@ export const defaultTracks: Track[] = [{
     octaveShift: 0,
     jitter: {
         velocity: 0.2,
-        beat: 0.00,
+        beat: 0.03,
     },
     pattern: {
         steps: 16,
@@ -57,7 +57,7 @@ export const defaultTracks: Track[] = [{
     octaveShift: -1,
     jitter: {
         velocity: 0.3,
-        beat: 0.5,
+        beat: 0.08,
     },
     pattern: {
         steps: 16,

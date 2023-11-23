@@ -80,13 +80,15 @@ export class MallePlayer {
 
     applyJitterOnNotes() {
         for (const note of this.notes) {
-            note.on = note.jitter.baseline.beat +
+            const on =
+                note.jitter.baseline.beat +
                 Math.random() * note.jitter.amplitude.beat;
-            note.note.attack = note.jitter.baseline.velocity +
+            const vel =
+                note.jitter.baseline.velocity +
                 Math.random() * note.jitter.amplitude.velocity;
 
-            note.on = Math.max(note.on, 0);
-            note.note.attack = clamp(note.note.attack, 0, 1);
+            note.on = Math.max(on, 0);
+            note.note.attack = clamp(vel, 0, 1);
         }
     }
 
